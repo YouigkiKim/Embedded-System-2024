@@ -1,41 +1,44 @@
-###Embedded-System-2024
----
+# Embedded System 2024 - Group 5
+2019035914 김영기 
+2019081194 임재혁
 
-##Source Code
----
-#prac22.py 
+
+## Source Code
+### prac22.py 
  - 주행 중 촬영을 위한 코드
  - selec버튼을 사용해 레코딩 On/off
 
-#task1.py
+### task1.py
  - 자율주행 구현코드
  - 표지판 인지모델 결합 전의 모델
 
-#task2.py
+### task2.py
  - task1과 task2가 합쳐진 최종모델
  - 4개의 Alexnet모델과 1개의 YOLOv8모델 사용
  - 조이스틱 6(L1),7(R1)번 키를 사용해 주행 중 throttle조정 기능 추가
  - 타임플래그를 활용한 표지판 제어 구현
    1. 횡단보도
        - 최초 인식 시 flag활성화 및 최초 인식 시간체크 ->  현재시간 체크 5초가 지나면 예외처리를 통해 인식 중에도 주행가능하도록 구현
-   3. 버스
+   2. 버스
        - 인식 시점부터 저속주행 시작, 표지판 인식하는 동안 인식시간 기록. 표지판 지나친 이후 2초간 서행 유지
-   5. 교차로
+   3. 교차로
        - 방향별로 차선 인식모델 학습
        - 표지판 인지 시 direction변수 방향에 알맞게  변경
        - 제어문을 통해 direction변수와 알맞은 모델로 이미지 입력 후 x값 출력
-
-#train_keyboard_model.ipynb
+       - 표지판을 지나치고 교차로 중간에서 원래모델로 돌아오는 사고를 방지하기 위해 표지판 통과 이후 3초간 모델 유지
+         -> 이전 steering값을 기록하여 포화범위 이내로 들어오면 원래모델로 돌아오는 방식이 더 안정성 있어보임
+         
+### train_keyboard_model.ipynb
  - 차선 라벨링 및 학습을 위한 주피터노트북
  - 실습시간에 사용한 코드 활용
  - shift에 다음, control에 이전 키 할당해 labeling작업 간소화
-      
-#squeeze.py 및 squeeze.ipynb
+
+### squeeze.py 및 squeeze.ipynb
  - squeezenet을 활용해 차선인지모델 구현 시도
  - classification모델을 recursive모델로 바꾸기 위해 최종 레이어 수정해 학습시켜보았지만 로스가 3만대로 출력됨
  - 시간관계상 당시 상황에서 해결할 수 없는 문제가 발생한 것으로 보여 squeezenet사용은 보류
 
-#changename.py
+### changename.py
  - 특정 디렉토리 안의 이미지들을 'frame_000000000'형식으로 변환하는 코드
  - 많은 양의 데이터셋을 사용했고 여러 디렉토리의 데이터셋을 섞어 사용했기 때문에 유용하게 사용된 코드
 
