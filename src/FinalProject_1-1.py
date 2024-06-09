@@ -11,7 +11,7 @@ import torchvision
 import PIL.Image
 import numpy as np
 
-# sign ?��?�� yolo model ?��?��
+
 from ultralytics import YOLO
 
 TEST_TRANSFORMS = transforms.Compose([
