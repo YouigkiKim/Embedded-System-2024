@@ -268,11 +268,7 @@ while running:
         if height1 > avoidance_height:
             avoidance_task = True
             print("@@@@@@@@@@@@@@@task start@@@@@@@@@@@@@@@@@@")
-            # print("@@@@@@@@@@@@@@@task start@@@@@@@@@@@@@@@@@@")
-            # print("@@@@@@@@@@@@@@@task start@@@@@@@@@@@@@@@@@@")
-            # print("@@@@@@@@@@@@@@@task start@@@@@@@@@@@@@@@@@@")
-            # print("@@@@@@@@@@@@@@@task start@@@@@@@@@@@@@@@@@@")
-            # print("@@@@@@@@@@@@@@@task start@@@@@@@@@@@@@@@@@@")
+          
         if avoidance_task == True:
             print("abs yaw: ",abs(prev_yaw - yaw))
             count = count+1
@@ -286,11 +282,7 @@ while running:
                 Get_into_position=True
                 avoidance_task = False
                 print("recovery start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                # print("recovery start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                # print("recovery start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                # print("recovery start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                # print("recovery start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                # print("recovery start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+               
         if Get_into_position == True :
             steering = steering_range[1]
             if abs(prev_yaw - yaw) <5:
